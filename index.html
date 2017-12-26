@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{padding: 0; margin: 0;font-size: 25px;}
+		input{margin: 10px;}
+		button{float: left;margin:10px;}
+	</style>
+</head>
+<body>
+	账号:<input type="text" name="a" id="user"><br/>
+	密码:<input type="text" name="b" id="pass"><br/>
+	<button id="btn">注册</button>
+	<button id="login">登陆</button>
+	<script>
+		//注册
+		btn.onclick=function(){
+			ajax({
+			url:"http://localhost:8888",
+			type:"post",
+			data:{
+				user:user.value,
+				pass:pass.value
+			},
+			async:true,
+			success:function(e){console.log(e)},
+			error:function(){}
+			})
+		}
+		//登录
+		login.onclick=function(){
+			ajax({
+				url:"http://localhost:8004",
+				type:"post",
+				data:{
+					user:user.value,
+					pass:pass.value 
+				},
+				async:true,
+				success:function(e){console.log(e)},
+				error:function(){}
+			})
+		}
+	</script>
+	
+</body>
+</html>
